@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovementGame.Core", "MovementGame.Core\MovementGame.Core.csproj", "{378C4959-EC82-47A9-A50E-3B7DA1180D76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovementGame.UI", "MovementGame.UI\MovementGame.UI.csproj", "{FDC43A88-F26B-4594-8B26-3E64C61E2053}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{378C4959-EC82-47A9-A50E-3B7DA1180D76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{378C4959-EC82-47A9-A50E-3B7DA1180D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{378C4959-EC82-47A9-A50E-3B7DA1180D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{378C4959-EC82-47A9-A50E-3B7DA1180D76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDC43A88-F26B-4594-8B26-3E64C61E2053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDC43A88-F26B-4594-8B26-3E64C61E2053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDC43A88-F26B-4594-8B26-3E64C61E2053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDC43A88-F26B-4594-8B26-3E64C61E2053}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38AFDE0F-42F4-4372-B3B6-24CBC1105415}
+	EndGlobalSection
+EndGlobal
