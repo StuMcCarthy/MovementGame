@@ -13,18 +13,13 @@ namespace MovementGame.Core
         public float Pitch;
         public float Roll;
     }
-    public enum Visibility
-    {
-        Visible,
-        Hidden
-    }
 
     public abstract class Actor
     {
-        public Vector3D Location { get; set; }
+        public Vector3D Location { get; internal set; }
         public Vector3D Scale { get; private set; }
         public Rotation Rotation { get; private set; }
-        public Visibility Visibility { get; private set; }
+        public bool Visibility { get; private set; }
 
         public Vector3D SetLocation(Vector3D newLocation)
         {
@@ -59,7 +54,7 @@ namespace MovementGame.Core
             return Rotation;
         }
 
-        public Visibility SetVisibility(Visibility newVisibility)
+        public bool SetVisibility(bool newVisibility)
         {
             Visibility = newVisibility;
             return Visibility;
