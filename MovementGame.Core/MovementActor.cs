@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Media.Media3D;
 
 namespace MovementGame.Core
 {
@@ -23,18 +23,18 @@ namespace MovementGame.Core
             return JumpHeight;
         }
 
-        public void MoveActor(Vector3D movementForce)
+        public void MoveActor(Vector3 movementForce)
         {
             Location += movementForce;
         }
 
         public void Jump()
         {
-            Location = new Vector3D { X = Location.X, Y = Location.Y + JumpHeight, Z = Location.Z };
+            Location = new Vector3 { X = Location.X, Y = Location.Y + JumpHeight, Z = Location.Z };
         }
         public void Land()
         {
-            Location = new Vector3D { X = Location.X, Y = Location.Y - JumpHeight, Z = Location.Z };
+            Location = new Vector3 { X = Location.X, Y = Location.Y - JumpHeight, Z = Location.Z };
         }
     }
 }

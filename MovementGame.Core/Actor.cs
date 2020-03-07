@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Media.Media3D;
 
 namespace MovementGame.Core
 {
@@ -16,30 +16,30 @@ namespace MovementGame.Core
 
     public abstract class Actor
     {
-        public Vector3D Location { get; internal set; }
-        public Vector3D Scale { get; private set; }
+        public Vector3 Location { get; internal set; }
+        public Vector3 Scale { get; private set; }
         public Rotation Rotation { get; private set; }
         public bool Visibility { get; private set; }
 
-        public Vector3D SetLocation(Vector3D newLocation)
+        public Vector3 SetLocation(Vector3 newLocation)
         {
             Location = newLocation;
             return Location;
         }
-        public Vector3D SetLocation(int x, int y, int z)
+        public Vector3 SetLocation(int x, int y, int z)
         {
-            Location = new Vector3D { X = x, Y = y, Z = z };
+            Location = new Vector3 { X = x, Y = y, Z = z };
             return Location;
         }
 
-        public Vector3D SetScale(Vector3D newScale)
+        public Vector3 SetScale(Vector3 newScale)
         {
             Scale = newScale;
             return Scale;
         }
-        public Vector3D SetScale(int x, int y, int z)
+        public Vector3 SetScale(int x, int y, int z)
         {
-            Scale = new Vector3D { X = x, Y = y, Z = z };
+            Scale = new Vector3 { X = x, Y = y, Z = z };
             return Scale;
         }
 
