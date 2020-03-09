@@ -21,10 +21,13 @@ namespace MovementGame.UI
     /// </summary>
     public partial class MainWindow : Window
     {
+        readonly Level Level = new Level();
+
         public MainWindow()
         {
             InitializeComponent();
-            MovementActor actor = new MovementActor();
+            DataContext = this;
+            KeyDown += Level.PlayerCharacter.KeyDown;
         }
     }
 }

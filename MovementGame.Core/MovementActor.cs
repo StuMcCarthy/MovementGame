@@ -10,31 +10,41 @@ namespace MovementGame.Core
 {
     public class MovementActor : Actor
     {
-        public int JumpHeight { get; private set; } = 100;
-        public bool AffectedByGravity { get; private set; } = false;
+        #region Events
+        public event EventHandler ActorMoved;
+        public void RaiseActorMoved(object sender, EventArgs e)
+        {
+            ActorMoved?.Invoke(sender, e);
+        }
+        #endregion
 
-        public void SetHasGravity(bool newValue)
+        #region Properties
+        public float MovementSpeed { get; private set; }
+        public bool AffectedByGravity { get; private set; }
+        #endregion
+
+        #region Constructors
+        public MovementActor() : base()
         {
-            AffectedByGravity = newValue;
+            MovementSpeed = 50;
+            AffectedByGravity = false;
         }
-        public int SetJumpHeight(int newHeight)
-        {
-            JumpHeight = newHeight;
-            return JumpHeight;
-        }
+        #endregion
 
         public void MoveActor(Vector3 movementForce)
         {
             Location += movementForce;
+            RaiseActorMoved(Location, null);
+            RaiseLocationChanged(Location, null);
         }
 
-        public void Jump()
+        public void SetMovementSpeed(float newSpeed)
         {
-            Location = new Vector3 { X = Location.X, Y = Location.Y + JumpHeight, Z = Location.Z };
+            MovementSpeed = newSpeed;
         }
-        public void Land()
+        public void SetHasGravity(bool newValue)
         {
-            Location = new Vector3 { X = Location.X, Y = Location.Y - JumpHeight, Z = Location.Z };
+            AffectedByGravity = newValue;
         }
     }
 }
