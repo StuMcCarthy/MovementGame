@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovementGame.Core", "Moveme
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovementGame.UI", "MovementGame.UI\MovementGame.UI.csproj", "{FDC43A88-F26B-4594-8B26-3E64C61E2053}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovementGame.Console", "MovementGame.Console\MovementGame.Console.csproj", "{BF1AEFBF-8DF8-46E8-914B-9286AF883F7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{FDC43A88-F26B-4594-8B26-3E64C61E2053}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDC43A88-F26B-4594-8B26-3E64C61E2053}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDC43A88-F26B-4594-8B26-3E64C61E2053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF1AEFBF-8DF8-46E8-914B-9286AF883F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF1AEFBF-8DF8-46E8-914B-9286AF883F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF1AEFBF-8DF8-46E8-914B-9286AF883F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF1AEFBF-8DF8-46E8-914B-9286AF883F7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
