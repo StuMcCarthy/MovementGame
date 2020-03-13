@@ -12,19 +12,10 @@ namespace MovementGame.Core
 {
     public class PlayerCharacterActor : MovementActor
     {
-        public Image PlayerImage { get; private set; }
 
         public PlayerCharacterActor() : base()
         {
-
         }
 
-        public void KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.D)
-            {
-                MoveActor(new Vector3(MovementSpeed, 0, 0));
-            }
-        }
     }
 }

@@ -21,13 +21,51 @@ namespace MovementGame.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        readonly Level Level = new Level();
+        Key pressedKey;
+        PlayerCharacterActor actor = new PlayerCharacterActor();
 
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
-            KeyDown += Level.PlayerCharacter.KeyDown;
+        }
+
+        private async Task PlayGame(PlayerCharacterActor actor)
+        {
+            while (true)
+            {
+                switch (pressedKey)
+                {
+                    case Key.A:
+                        actor.MoveActor(new System.Numerics.Vector3(-5, 0, 0));
+                        break;
+                    case Key.D:
+                        actor.MoveActor(new System.Numerics.Vector3(5, 0, 0));
+                        break;
+                    case Key.W:
+                        actor.MoveActor(new System.Numerics.Vector3(0, 5, 0));
+                        break;
+                    case Key.S:
+                        actor.MoveActor(new System.Numerics.Vector3(0, -5, 0));
+                        break;
+                    default:
+                        break;
+                }
+                pressedKey = Key.Enter;
+                Canvas.SetLeft(Shape, actor.Location.X);
+                Canvas.SetBottom(Shape, actor.Location.Y);
+                await Task.Delay(5);
+            }
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            pressedKey = e.Key;
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            await PlayGame(actor);
         }
     }
 }

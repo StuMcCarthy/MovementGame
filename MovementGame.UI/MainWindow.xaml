@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovementGame.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" MouseMove="Window_MouseMove" KeyDown="Window_KeyDown">
-    <Grid>
-        <Label x:Name="labelX" Content="label" HorizontalAlignment="Left" Margin="80,80,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelY" Content="Label" HorizontalAlignment="Left" Margin="140,80,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="labelZ" Content="Label" HorizontalAlignment="Left" Margin="195,80,0,0" VerticalAlignment="Top"/>
-    </Grid>
+        Title="MainWindow" Height="450" Width="800" KeyDown="Window_KeyDown">
+    <Canvas x:Name="Canvas_Level">
+        <Ellipse x:Name="Shape" Fill="#FFF4F4F5" Height="100" Canvas.Left="0" Stroke="Black" Canvas.Bottom="0" Width="100"/>
+        <Button Content="Button" Canvas.Left="34" Canvas.Top="27" Width="74" Click="Button_Click"/>
+
+    </Canvas>
 </Window>
