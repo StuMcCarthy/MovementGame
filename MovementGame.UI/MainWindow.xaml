@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" KeyDown="Window_KeyDown">
     <Canvas x:Name="Canvas_Level">
-        <Ellipse x:Name="Shape" Fill="#FFF4F4F5" Height="100" Canvas.Left="0" Stroke="Black" Canvas.Bottom="0" Width="100"/>
+        <Ellipse x:Name="shape" Fill="#FFF4F4F5" Height="100" Canvas.Left="0" Stroke="Black" Canvas.Bottom="0" Width="100"/>
         <Button Content="Button" Canvas.Left="34" Canvas.Top="27" Width="74" Click="Button_Click"/>
 
     </Canvas>

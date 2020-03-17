@@ -52,8 +52,8 @@ namespace MovementGame.UI
                         break;
                 }
                 pressedKey = Key.Enter;
-                Canvas.SetLeft(Shape, actor.Location.X);
-                Canvas.SetBottom(Shape, actor.Location.Y);
+                Canvas.SetLeft(shape, actor.Location.X);
+                Canvas.SetBottom(shape, actor.Location.Y);
                 await Task.Delay(5);
             }
         }

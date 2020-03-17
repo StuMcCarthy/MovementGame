@@ -77,7 +77,7 @@ namespace MovementGame.Core
         #endregion
 
 
-        public void SpawnActor()
+        public virtual void SpawnActor()
         {
             RaiseActorSpawned(this, null);
         }
