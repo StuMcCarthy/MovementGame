@@ -15,11 +15,9 @@ namespace MovementGame.Core
     {
         [System.Runtime.InteropServices.DllImport("User32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
-
-        public float XMovementSpeed { get { return 10; } }
-        public float YMovementSpeed { get { return 5; } }
-
         public Tick CharacterTick = new Tick(10);
+
+        
         public PlayerCharacterActor() : base()
         {
 
@@ -34,18 +32,18 @@ namespace MovementGame.Core
 
         private void CharacterTick_Elapsed(object sender, ElapsedEventArgs e)
         {
-            MoveActor(GetTurnVector());
+            MoveActor(GetUserMovementInput());
 
             Console.WriteLine(Location);
         }
 
-        private Vector3 GetTurnVector()
+        private Vector3 GetUserMovementInput()
         {
             var v = new Vector3(0);
             if (GetAsyncKeyState('A') != 0)
-                v += new Vector3(-5, 0, 0);
+                v += new Vector3(-MovementSpeed, 0, 0);
             if (GetAsyncKeyState('D') != 0)
-                v += new Vector3(5, 0, 0);
+                v += new Vector3(MovementSpeed, 0, 0);
             if (GetAsyncKeyState('W') != 0)
                 v += new Vector3(0, 5, 0);
             if (GetAsyncKeyState('S') != 0)

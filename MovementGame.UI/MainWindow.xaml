@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovementGame.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" KeyDown="Window_KeyDown">
+        Title="MainWindow" Height="450" Width="800">
     <Canvas x:Name="Canvas_Level">
         <Ellipse x:Name="shape" Fill="#FFF4F4F5" Height="100" Canvas.Left="0" Stroke="Black" Canvas.Bottom="0" Width="100"/>
         <Button Content="Button" Canvas.Left="34" Canvas.Top="27" Width="74" Click="Button_Click"/>

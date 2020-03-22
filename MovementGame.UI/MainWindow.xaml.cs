@@ -21,7 +21,6 @@ namespace MovementGame.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        Key pressedKey;
         PlayerCharacterActor actor = new PlayerCharacterActor();
 
         public MainWindow()
@@ -32,35 +31,13 @@ namespace MovementGame.UI
 
         private async Task PlayGame(PlayerCharacterActor actor)
         {
+            actor.SpawnActor();
             while (true)
             {
-                switch (pressedKey)
-                {
-                    case Key.A:
-                        actor.MoveActor(new System.Numerics.Vector3(-5, 0, 0));
-                        break;
-                    case Key.D:
-                        actor.MoveActor(new System.Numerics.Vector3(5, 0, 0));
-                        break;
-                    case Key.W:
-                        actor.MoveActor(new System.Numerics.Vector3(0, 5, 0));
-                        break;
-                    case Key.S:
-                        actor.MoveActor(new System.Numerics.Vector3(0, -5, 0));
-                        break;
-                    default:
-                        break;
-                }
-                pressedKey = Key.Enter;
                 Canvas.SetLeft(shape, actor.Location.X);
                 Canvas.SetBottom(shape, actor.Location.Y);
                 await Task.Delay(5);
             }
-        }
-
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-            pressedKey = e.Key;
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)

@@ -19,14 +19,13 @@ namespace MovementGame.Core
         #endregion
 
         #region Properties
-        public float MovementSpeed { get; private set; }
+        public float MovementSpeed { get; private set; } = 10;
         public bool AffectedByGravity { get; private set; }
         #endregion
 
         #region Constructors
         public MovementActor() : base()
         {
-            MovementSpeed = 50;
             AffectedByGravity = false;
         }
         #endregion
