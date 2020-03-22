@@ -14,30 +14,10 @@ namespace MovementGame.Console
             PlayerCharacterActor actor = new PlayerCharacterActor();
             System.Console.WriteLine(actor.Location);
             actor.SpawnActor();
-            System.Console.ReadLine();
-            //while (true)
-            //{
-            //    var input = System.Console.ReadKey();
-            //    switch (input.Key)
-            //    {
-            //        case ConsoleKey.A:
-            //            actor.MoveActor(new System.Numerics.Vector3(-5, 0, 0));
-            //            break;
-            //        case ConsoleKey.D:
-            //            actor.MoveActor(new System.Numerics.Vector3(5, 0, 0));
-            //            break;
-            //        case ConsoleKey.W:
-            //            actor.MoveActor(new System.Numerics.Vector3(0, 5, 0));
-            //            break;
-            //        case ConsoleKey.S:
-            //            actor.MoveActor(new System.Numerics.Vector3(0, -5, 0));
-            //            break;
-            //        default:
-            //            break;
-            //    }
+            while (true)
+            {
 
-            //    System.Console.WriteLine(string.Format("Actor Location: X={0},Y={1},Z={2}", actor.Location.X, actor.Location.Y, actor.Location.Z));
-            //}
+            }
         }
 
     }
