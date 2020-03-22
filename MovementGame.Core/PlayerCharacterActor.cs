@@ -41,15 +41,16 @@ namespace MovementGame.Core
 
         private Vector3 GetTurnVector()
         {
+            var v = new Vector3(0);
             if (GetAsyncKeyState('A') != 0)
-                return new Vector3(-5, 0, 0);
+                v += new Vector3(-5, 0, 0);
             if (GetAsyncKeyState('D') != 0)
-                return new Vector3(5, 0, 0);
+                v += new Vector3(5, 0, 0);
             if (GetAsyncKeyState('W') != 0)
-                return new Vector3(0, 5, 0);
+                v += new Vector3(0, 5, 0);
             if (GetAsyncKeyState('S') != 0)
-                return new Vector3(0, -5, 0);
-            return new Vector3();
+                v += new Vector3(0, -5, 0);
+            return v;
         }
     }
 }
