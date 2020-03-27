@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<KeyBindings>
+  <Movement Type="Side">
+    <MovementKey Type="Left" Key="A"/>
+    <MovementKey Type="Right" Key="D"/>
+    <MovementKey Type="Up" Key="W"/>
+    <MovementKey Type="Down" Key="S"/>
+  </Movement>
+  <Movement Type="TopDown">
+    <MovementKey Type="West" Key="A"/>
+    <MovementKey Type="East" Key="D"/>
+    <MovementKey Type="North" Key="W"/>
+    <MovementKey Type="South" Key="S"/>
+  </Movement>
+</KeyBindings>

@@ -22,7 +22,7 @@ namespace MovementGame.Core
         public Level()
         {
             ActorList = new List<Actor>();
-            PlayerCharacter = new PlayerCharacterActor();
+            PlayerCharacter = new PlayerCharacterActor(new GameModeTopDown());
         }
 
         public void AddNewActor(Actor actor)

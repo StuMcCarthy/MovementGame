@@ -21,7 +21,7 @@ namespace MovementGame.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        PlayerCharacterActor actor = new PlayerCharacterActor();
+        PlayerCharacterActor actor = new PlayerCharacterActor(new GameModeTopDown());
 
         public MainWindow()
         {
@@ -34,8 +34,8 @@ namespace MovementGame.UI
             actor.SpawnActor();
             while (true)
             {
-                Canvas.SetLeft(shape, actor.Location.X);
-                Canvas.SetBottom(shape, actor.Location.Y);
+                Canvas.SetLeft(Ellipse_Character, actor.Location.X);
+                Canvas.SetBottom(Ellipse_Character, actor.Location.Y);
                 await Task.Delay(5);
             }
         }
