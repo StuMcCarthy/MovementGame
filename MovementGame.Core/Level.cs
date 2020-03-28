@@ -8,27 +8,21 @@ namespace MovementGame.Core
 {
     public class Level
     {
-        #region Events
-        public event EventHandler ActorAdded;
-        public void RaiseActorAdded(object sender, EventArgs e)
-        {
-            ActorAdded?.Invoke(sender, e);
-        }
-        #endregion
-
-        public List<Actor> ActorList { get; private set; }
+        public Tick LevelTick { get; }
+        public string Name { get; set; }
+        public List<IActor> ActorList { get; private set; }
         public PlayerCharacterActor PlayerCharacter { get; }
 
-        public Level()
+        public Level(PlayerCharacterActor player, Tick tick)
         {
-            ActorList = new List<Actor>();
-            PlayerCharacter = new PlayerCharacterActor(new GameModeTopDown());
+            PlayerCharacter = player;
+            LevelTick = tick;
+            LevelTick.TickTimer.Elapsed += Level_TickEvent;
         }
 
-        public void AddNewActor(Actor actor)
+        private void Level_TickEvent(object sender, System.Timers.ElapsedEventArgs e)
         {
-            ActorList.Add(actor);
-            RaiseActorAdded(ActorList, null);
+            Console.WriteLine(string.Format("Level Tick : {0}", DateTime.Now));
         }
     }
 }

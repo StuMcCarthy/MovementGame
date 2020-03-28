@@ -27,7 +27,35 @@ namespace MovementGame.Core
         }
     }
 
-    public abstract class Actor
+    public interface IActor
+    {
+        Vector3 Location { get; }
+        Rotation Rotation { get; }
+        Vector3 Scale { get; }
+        bool Visibility { get; }
+
+        event EventHandler ActorSpawned;
+        event EventHandler LocationChanged;
+        event EventHandler RotationChanged;
+        event EventHandler ScaleChanged;
+        event EventHandler VisibilityChanged;
+
+        void RaiseActorSpawned(object sender, EventArgs e);
+        void RaiseLocationChanged(object sender, EventArgs e);
+        void RaiseRotationChanged(object sender, EventArgs e);
+        void RaiseScaleChanged(object sender, EventArgs e);
+        void RaiseVisibilityChanged(object sender, EventArgs e);
+        Vector3 SetLocation(float x, float y, float z);
+        Vector3 SetLocation(Vector3 newLocation);
+        Rotation SetRotation(float yaw, float pitch, float roll);
+        Rotation SetRotation(Rotation newRotation);
+        Vector3 SetScale(float x, float y, float z);
+        Vector3 SetScale(Vector3 newScale);
+        bool SetVisibility(bool newVisibility);
+        void SpawnActor();
+    }
+
+    public abstract class Actor : IActor
     {
         #region Events
         public event EventHandler ActorSpawned;
@@ -91,7 +119,7 @@ namespace MovementGame.Core
         }
         public Vector3 SetLocation(float x, float y, float z)
         {
-            Location = new Vector3(x,y,z);
+            Location = new Vector3(x, y, z);
             RaiseLocationChanged(Location, null);
             return Location;
         }

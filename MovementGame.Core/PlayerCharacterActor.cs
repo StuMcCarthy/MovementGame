@@ -15,42 +15,40 @@ namespace MovementGame.Core
     {
         [System.Runtime.InteropServices.DllImport("User32.dll")]
         public static extern short GetAsyncKeyState(int vKey);
+        public Tick CharacterTick { get; }
+        public readonly IGameMode GameMode;
 
-        public Tick CharacterTick = new Tick(10);
-        readonly GameMode GameMode;
         private char leftKey;
         private char rightKey;
         private char upKey;
         private char downKey;
 
-        public Rectangle rectangle;
-        public PlayerCharacterActor(GameMode gameMode) : base()
+        public PlayerCharacterActor(IGameMode gameMode, Tick tickRef) : base()
         {
             GameMode = gameMode;
+            CharacterTick = tickRef;
             SetKeyBindings();
-            rectangle = new Rectangle() 
-            {
-                X = Convert.ToInt32(Location.X),
-                Y = Convert.ToInt32(Location.Y),
-                Width = 50,
-                Height = 50
-            };
         }
-
-    public override void SpawnActor()
+        private void SetKeyBindings()
+        {
+            var bindings = KeyBindings.GetKeyBindings(GameMode.Name);
+            leftKey = bindings["West"];
+            rightKey = bindings["East"];
+            upKey = bindings["North"];
+            downKey = bindings["South"];
+        }
+        public override void SpawnActor()
         {
             base.SpawnActor();
-            CharacterTick.TickTimer.Elapsed += CharacterTick_Elapsed;
-            CharacterTick.TickTimer.Enabled = true;
+            CharacterTick.TickTimer.Elapsed += TickEvent;
         }
-
-        private void CharacterTick_Elapsed(object sender, ElapsedEventArgs e)
+        private void TickEvent(object sender, ElapsedEventArgs e)
         {
-            MoveActor(GetUserMovementInput());
-            UpdateRectangle();
-            Console.WriteLine(string.Format("{0}, {1}", rectangle.X, rectangle.Y));
-        }
+            Console.WriteLine(string.Format("Player Tick : {0}", DateTime.Now));
+            Console.WriteLine(Location);
 
+            MoveActor(GetUserMovementInput());
+        }
         private Vector3 GetUserMovementInput()
         {
             var v = new Vector3(0);
@@ -63,20 +61,6 @@ namespace MovementGame.Core
             if (GetAsyncKeyState(downKey) != 0)
                 v += new Vector3(0, -MovementSpeed, 0);
             return v;
-        }
-        private void SetKeyBindings()
-        {
-            var bindings = KeyBindings.GetKeyBindings(GameMode.Name);
-            bindings.TryGetValue("West", out leftKey);
-            bindings.TryGetValue("East", out rightKey);
-            bindings.TryGetValue("North", out upKey);
-            bindings.TryGetValue("South", out downKey);
-        }
-
-        private void UpdateRectangle()
-        {
-            rectangle.X = Convert.ToInt32(Location.X);
-            rectangle.Y = Convert.ToInt32(Location.Y);
         }
     }
 }

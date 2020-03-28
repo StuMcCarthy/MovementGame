@@ -21,8 +21,7 @@ namespace MovementGame.UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        PlayerCharacterActor actor = new PlayerCharacterActor(new GameModeTopDown());
-
+        readonly GameInstance Game = new GameInstance();
         public MainWindow()
         {
             InitializeComponent();
@@ -31,7 +30,8 @@ namespace MovementGame.UI
 
         private async Task PlayGame(PlayerCharacterActor actor)
         {
-            actor.SpawnActor();
+            Game.StartGame();
+            Game.PlayerCharacter.SpawnActor();
             while (true)
             {
                 Canvas.SetLeft(Ellipse_Character, actor.Location.X);
@@ -42,7 +42,7 @@ namespace MovementGame.UI
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            await PlayGame(actor);
+            await PlayGame(Game.PlayerCharacter);
         }
     }
 }

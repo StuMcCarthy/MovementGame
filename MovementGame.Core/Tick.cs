@@ -18,10 +18,5 @@ namespace MovementGame.Core
                 AutoReset = true
             };
         }
-
-        public void StartTick()
-        {
-            TickTimer.Start();
-        }
     }
 }

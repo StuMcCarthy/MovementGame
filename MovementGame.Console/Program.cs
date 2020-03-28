@@ -11,13 +11,6 @@ namespace MovementGame.Console
     {
         static void Main(string[] args)
         {
-            PlayerCharacterActor actor = new PlayerCharacterActor();
-            System.Console.WriteLine(actor.Location);
-            actor.SpawnActor();
-            while (true)
-            {
-
-            }
         }
 
     }

@@ -8,7 +8,7 @@ namespace MovementGame.Core
 {
     public class GameModeTopDown : GameMode
     {
-        public GameModeTopDown() : base()
+        public GameModeTopDown(Tick tick) : base(tick)
         {
             Name = "TopDown";
         }

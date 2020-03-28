@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actor.cs" />
+    <Compile Include="GameInstance.cs" />
     <Compile Include="GameMode.cs" />
     <Compile Include="GameModeTopDown.cs" />
     <Compile Include="Gravity.cs" />
