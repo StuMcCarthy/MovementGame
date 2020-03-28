@@ -22,6 +22,7 @@ namespace MovementGame.Core
         private char rightKey;
         private char upKey;
         private char downKey;
+        private char sprintKey;
 
         public PlayerCharacterActor(IGameMode gameMode, Tick tickRef) : base()
         {
@@ -36,6 +37,7 @@ namespace MovementGame.Core
             rightKey = bindings["East"];
             upKey = bindings["North"];
             downKey = bindings["South"];
+            sprintKey = bindings["Sprint"];
         }
         public override void SpawnActor()
         {
@@ -51,6 +53,10 @@ namespace MovementGame.Core
         }
         private Vector3 GetUserMovementInput()
         {
+            var sprinting = GetAsyncKeyState(sprintKey) != 0;
+            if (sprinting)
+                MovementSpeed += AdditionalSprintAdder;
+
             var v = new Vector3(0);
             if (GetAsyncKeyState(leftKey) != 0)
                 v += new Vector3(-MovementSpeed, 0, 0);
@@ -60,6 +66,10 @@ namespace MovementGame.Core
                 v += new Vector3(0, MovementSpeed, 0);
             if (GetAsyncKeyState(downKey) != 0)
                 v += new Vector3(0, -MovementSpeed, 0);
+
+            if (sprinting)
+                MovementSpeed -= AdditionalSprintAdder;
+
             return v;
         }
     }

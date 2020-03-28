@@ -26,21 +26,22 @@ namespace MovementGame.UI
         {
             InitializeComponent();
             DataContext = this;
+            Canvas_Level.Height = Game.Level.Size.Y;
+            Canvas_Level.Width = Game.Level.Size.X;
         }
 
         private async Task PlayGame(PlayerCharacterActor actor)
         {
             Game.StartGame();
-            Game.PlayerCharacter.SpawnActor();
             while (true)
             {
                 Canvas.SetLeft(Ellipse_Character, actor.Location.X);
                 Canvas.SetBottom(Ellipse_Character, actor.Location.Y);
-                await Task.Delay(5);
+                await Task.Delay(10);
             }
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private async void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             await PlayGame(Game.PlayerCharacter);
         }

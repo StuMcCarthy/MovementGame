@@ -11,5 +11,6 @@
     <MovementKey Type="East" Key="D"/>
     <MovementKey Type="North" Key="W"/>
     <MovementKey Type="South" Key="S"/>
+    <MovementKey Type="Sprint" Key="P"/>
   </Movement>
 </KeyBindings>

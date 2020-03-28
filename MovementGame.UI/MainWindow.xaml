@@ -5,10 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MovementGame.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Canvas x:Name="Canvas_Level">
-        <Rectangle x:Name="Ellipse_Character" Fill="#FFF4F4F5" Height="40" Canvas.Left="0" Stroke="Black" Canvas.Bottom="0" Width="40"/>
-        <Button Content="Button" Canvas.Left="34" Canvas.Top="27" Width="74" Click="Button_Click"/>
-
-    </Canvas>
+        Title="MainWindow">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="Start Game" Click="MenuItem_Click" />
+        </Menu>
+        <Canvas x:Name="Canvas_Level" Grid.Row="1" Background="#FFB08A8A">
+            <Rectangle x:Name="Ellipse_Character" Fill="#FFF4F4F5" Height="40" Canvas.Left="0" Stroke="Black" Canvas.Bottom="0" Width="40"/>
+        </Canvas>
+    </Grid>
 </Window>

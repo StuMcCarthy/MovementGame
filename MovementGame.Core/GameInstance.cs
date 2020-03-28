@@ -9,7 +9,7 @@ namespace MovementGame.Core
     public class GameInstance
     {
         public IGameMode GameMode { get; set; }
-        public List<Level> Levels { get; set; }
+        public Level Level { get; set; }
         public PlayerCharacterActor PlayerCharacter { get; set; }
         public Tick GlobalTick = new Tick(10);
 
@@ -17,16 +17,14 @@ namespace MovementGame.Core
         {
             GameMode = new GameModeTopDown(GlobalTick);
             PlayerCharacter = new PlayerCharacterActor(GameMode, GlobalTick);
-            Levels = new List<Level>
-            {
-                new Level(PlayerCharacter, GlobalTick)
-            };
+            Level = new Level(PlayerCharacter, GlobalTick);
         }
 
         public void StartGame()
         {
             GlobalTick.TickTimer.Elapsed += GameInstance_TickEvent;
             GlobalTick.TickTimer.Enabled = true;
+            Level.StartLevel();
         }
 
         private void GameInstance_TickEvent(object sender, System.Timers.ElapsedEventArgs e)

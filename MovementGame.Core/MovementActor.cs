@@ -19,7 +19,8 @@ namespace MovementGame.Core
         #endregion
 
         #region Properties
-        public float MovementSpeed { get; private set; } = 10;
+        public float MovementSpeed { get; protected set; } = 5;
+        public float AdditionalSprintAdder { get; protected set; } = 3;
         public bool AffectedByGravity { get; private set; }
         #endregion
 
