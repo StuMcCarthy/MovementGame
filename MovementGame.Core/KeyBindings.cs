@@ -5,29 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
+
 namespace MovementGame.Core
 {
     public static class KeyBindings
     {
-        public static Dictionary<string, char> GetKeyBindings(string gameType)
+        public static Dictionary<string, int> GetKeyBindings(string gameType)
         {
-            var dic = new Dictionary<string, char>();
+            var dic = new Dictionary<string, int>();
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load("UserPreferences.xml");
             var nodes = xmlDoc.SelectNodes(string.Format("//KeyBindings//Movement[@Type='{0}']//MovementKey", gameType));
             foreach (XmlNode key in nodes)
-                dic.Add(key.Attributes["Type"].Value, Convert.ToChar(key.Attributes["Key"].Value));
+                dic.Add(key.Attributes["Type"].Value, XmlConvert.ToInt32(key.Attributes["Key"].Value));
             return dic;
-        }
-
-        public static void SetKeyBindings(Dictionary<string, char> keyNamesAndValues, string gameType)
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("UserPreferences.xml");
-            var nodes = xmlDoc.SelectNodes(string.Format("//KeyBindings//Movement[@Type='{0}']//MovementKey", gameType));
-            foreach (XmlNode key in nodes)
-                if (keyNamesAndValues.ContainsKey(key.Attributes["Type"].Value))
-                    (key.Attributes["Key"].Value) = keyNamesAndValues[key.Attributes["Type"].Value].ToString();
         }
     }
 }

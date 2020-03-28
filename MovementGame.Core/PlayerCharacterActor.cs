@@ -19,11 +19,11 @@ namespace MovementGame.Core
         public readonly IGameMode GameMode;
 
         #region Player Keys
-        private char leftKey;
-        private char rightKey;
-        private char upKey;
-        private char downKey;
-        private char sprintKey;
+        private int leftKey;
+        private int rightKey;
+        private int upKey;
+        private int downKey;
+        private int sprintKey;
         #endregion
 
         public PlayerCharacterActor(IGameMode gameMode, Tick tickRef) : base()
