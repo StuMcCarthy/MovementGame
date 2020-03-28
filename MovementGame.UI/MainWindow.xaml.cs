@@ -45,5 +45,11 @@ namespace MovementGame.UI
         {
             await PlayGame(Game.PlayerCharacter);
         }
+
+        private void MenuItem_UserPreferences_Click(object sender, RoutedEventArgs e)
+        {
+            SetKeyBindings setKeyBindings = new SetKeyBindings();
+            setKeyBindings.ShowDialog();
+        }
     }
 }

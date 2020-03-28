@@ -18,11 +18,13 @@ namespace MovementGame.Core
         public Tick CharacterTick { get; }
         public readonly IGameMode GameMode;
 
+        #region Player Keys
         private char leftKey;
         private char rightKey;
         private char upKey;
         private char downKey;
         private char sprintKey;
+        #endregion
 
         public PlayerCharacterActor(IGameMode gameMode, Tick tickRef) : base()
         {
@@ -53,24 +55,23 @@ namespace MovementGame.Core
         }
         private Vector3 GetUserMovementInput()
         {
-            var sprinting = GetAsyncKeyState(sprintKey) != 0;
-            if (sprinting)
-                MovementSpeed += AdditionalSprintAdder;
-
+            var speed = GetInputSpeed();
             var v = new Vector3(0);
             if (GetAsyncKeyState(leftKey) != 0)
-                v += new Vector3(-MovementSpeed, 0, 0);
+                v += new Vector3(-speed, 0, 0);
             if (GetAsyncKeyState(rightKey) != 0)
-                v += new Vector3(MovementSpeed, 0, 0);
+                v += new Vector3(speed, 0, 0);
             if (GetAsyncKeyState(upKey) != 0)
-                v += new Vector3(0, MovementSpeed, 0);
+                v += new Vector3(0, speed, 0);
             if (GetAsyncKeyState(downKey) != 0)
-                v += new Vector3(0, -MovementSpeed, 0);
-
-            if (sprinting)
-                MovementSpeed -= AdditionalSprintAdder;
-
+                v += new Vector3(0, -speed, 0);
             return v;
+        }
+        private float GetInputSpeed()
+        {
+            if (GetAsyncKeyState(sprintKey) != 0)
+                return MovementSpeed + AdditionalSprintAdder;
+            return MovementSpeed;
         }
     }
 }

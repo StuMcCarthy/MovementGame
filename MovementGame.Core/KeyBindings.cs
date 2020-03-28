@@ -19,5 +19,15 @@ namespace MovementGame.Core
                 dic.Add(key.Attributes["Type"].Value, Convert.ToChar(key.Attributes["Key"].Value));
             return dic;
         }
+
+        public static void SetKeyBindings(Dictionary<string, char> keyNamesAndValues, string gameType)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load("UserPreferences.xml");
+            var nodes = xmlDoc.SelectNodes(string.Format("//KeyBindings//Movement[@Type='{0}']//MovementKey", gameType));
+            foreach (XmlNode key in nodes)
+                if (keyNamesAndValues.ContainsKey(key.Attributes["Type"].Value))
+                    (key.Attributes["Key"].Value) = keyNamesAndValues[key.Attributes["Type"].Value].ToString();
+        }
     }
 }

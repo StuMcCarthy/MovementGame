@@ -12,7 +12,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
-            <MenuItem Header="Start Game" Click="MenuItem_Click" />
+            <MenuItem Header="Start Game" Click="MenuItem_Click"/>
+            <MenuItem Header="User Preferences" Click="MenuItem_UserPreferences_Click"/>
         </Menu>
         <Canvas x:Name="Canvas_Level" Grid.Row="1" Background="#FFB08A8A">
             <Rectangle x:Name="Ellipse_Character" Fill="#FFF4F4F5" Height="40" Canvas.Left="0" Stroke="Black" Canvas.Bottom="0" Width="40"/>
